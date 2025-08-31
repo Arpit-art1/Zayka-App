@@ -96,6 +96,12 @@
     border-radius: 4px;
 }
 
+
+.no-click {
+    cursor: not-allowed !important;
+    background-color: gray !important;
+  }
+
 @media (max-width:750px){
     .cart-bottom{
         flex-direction: column-reverse;

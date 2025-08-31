@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
@@ -9,13 +9,13 @@ import LoginPopup from "../../components/LoginPopup/LoginPopup";
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
     useContext(StoreContext);
-    const [bhowLogin,betShowLogin]=useState(false);
+  const [bhowLogin, betShowLogin] = useState(false);
 
   const navigate = useNavigate();
 
   return (
     <>
-    {bhowLogin ? <LoginPopup setShowLogin={betShowLogin}/> : <></>}
+      {bhowLogin ? <LoginPopup setShowLogin={betShowLogin} /> : <></>}
       <div className="cart">
         <div className="cart-to-home navbar">
           <Link to="/">
@@ -90,13 +90,13 @@ const Cart = () => {
                 </b>
               </div>
             </div>
-            <button onClick={() => navigate("/order")}>
+            <button className={getTotalCartAmount() === 0 ? "no-click" : ""} disabled={getTotalCartAmount() === 0} onClick={() => navigate("/order")}>
               Proceed To Checkout
             </button>
           </div>
           <div className="cart-promocode">
             <div>
-              <p>If You Have a Promocode, Enter It Here</p>
+              <p >If You Have a Promocode, Enter It Here</p>
               <div className="cart-promocode-input">
                 <input type="text" placeholder="promo code" />
                 <button>Submit</button>
